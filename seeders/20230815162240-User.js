@@ -13,9 +13,9 @@ module.exports = {
        [
          {
            id: 1,
-           name: "John Doe",
+           name: "Jose",
            password: password,
-           email: "John Doe",
+           email: "jfilippo04@gmail.com",
            createdAt: new Date(),
            updatedAt: new Date(),
          },

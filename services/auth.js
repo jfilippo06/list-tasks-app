@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const auth = require('../config/auth')
-const { createUser } = require('../DAL/auth')
+const { createUser, findUser } = require('../DAL/auth')
 
 const registerServices = async (name, password, email) => {
     const salt = await bcrypt.genSalt(Number.parseInt(auth.rounds))
@@ -8,6 +8,11 @@ const registerServices = async (name, password, email) => {
     await createUser(name, hash, email)
 }
 
+const loginServices = async (email, password) => {
+    return await findUser(email, password);
+}
+
 module.exports = {
     registerServices,
+    loginServices,
 }
