@@ -15,9 +15,9 @@ const loginControler = async (req, res) => {
     try {
         const {email, password} = req.body
         const user = await loginServices(email, password)
+        const token = await generateToken(user)
         res.json({
-            usuario: user.name,
-            token: await generateToken(user)
+            token: token
         })
     } catch (error) {
         res.status(error.code).json(error.message)
